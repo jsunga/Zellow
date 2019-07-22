@@ -1,0 +1,8 @@
+$primary-font: 'Lato', sans-serif;
+$secondary-font: 'Alegreya Sans', sans-serif;
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
