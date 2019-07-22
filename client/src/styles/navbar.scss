@@ -1,0 +1,136 @@
+@import './varaibles';
+
+.navbar {
+    border-bottom: 1px solid #D8D8D8;
+    background-color: white;
+
+    @media (min-width: 866px) {
+        height: 75px;
+        display: flex;
+    }
+
+    .left-container {
+        width: 50%;
+    }
+
+    .middle-container {
+        width: 155px;
+    }
+
+    .right-container {
+        widtH: 50%;
+    }
+
+    input {
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('../assets/magnifier.png');
+        background-position: 220px 9px; 
+        background-repeat: no-repeat;
+        padding: 12px 40px 12px 20px;
+    }
+
+    .link {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            color: $light-blue;
+        }
+    }
+
+    section {
+        height: 75px;
+
+        @media (max-width: 866px) {
+            display: none;
+        }
+        
+        img {
+            padding-bottom: 4px;
+            padding-right: 10px;
+        }
+
+        h1 {
+            color: $blue;
+            margin: 0;
+            text-align: center;
+            font-size: 36px;
+            height: 75px;
+            @include center;
+        }
+
+        .left-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 50px;
+
+            @media (max-width: 1020px) {
+                margin-right: 10px;
+            }
+        }
+
+        .right-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 50px;
+
+            @media (max-width: 1020px) {
+                margin-left: 10px;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 75px;
+        }
+
+        li {
+            display: inline;
+            padding: 0 15px;
+
+            @media (max-width: 1020px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .mobile {
+        width: 100%;
+
+        @media (min-width: 866px) {
+            display: none;
+        }
+
+        h1 {
+            color: $blue;
+            margin: 0;
+            font-size: 36px;
+            height: 50px;
+            @include center;
+        }
+
+        img {
+            padding-bottom: 4px;
+            padding-right: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            padding: 3px 0;
+        }
+    }
+}
