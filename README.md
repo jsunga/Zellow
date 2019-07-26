@@ -1,5 +1,5 @@
 ## Zellow Real Estate
-Sell or find homes in the Bay Area.
+Sell, rent or find homes in the Bay Area.
 
 ## Built with
 
@@ -8,6 +8,7 @@ Sell or find homes in the Bay Area.
 - Node.js
 - Express.js
 - Postgres
+- Redis
 
 ## Contributors
 - Jawyn Sunga
