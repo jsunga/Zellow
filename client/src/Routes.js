@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
+import Post from './components/Post'
 
 const Routes = () => (
     <Router>
@@ -12,6 +13,7 @@ const Routes = () => (
             <Route exact path='/' component={Landing} />
             <Route exact path='/user/login' component={Login} />
             <Route exact path='/user/register' component={Register} />
+            <Route exact path='/list_your_rental' component={Post} />
         </Switch>
     </Router>
 )
