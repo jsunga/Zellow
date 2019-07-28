@@ -17,6 +17,7 @@
             flex-direction: column;
             width: 800px;
             text-align: center;
+            padding: 10px;
 
             h1 {
                 font-size: 50px;
@@ -62,6 +63,10 @@
 
         section {
             width: 50%;
+        }
+
+        .img-container {
+            text-align: center;
         }
 
         h1 {

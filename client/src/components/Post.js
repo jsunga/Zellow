@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import type from '../assets/type.jpg'
 import '../styles/post.scss'
 
 export default class Post extends Component {
@@ -31,8 +32,8 @@ export default class Post extends Component {
                             </p>
                             <button>Create a listing</button>
                         </section>
-                        <section>
-
+                        <section className='img-container'>
+                            <img src={type} height='300px' width='400px' alt='pic' />
                         </section>
                     </div>
                 </div>
