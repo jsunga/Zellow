@@ -1,0 +1,76 @@
+@import './varaibles';
+
+.footer {
+    padding: 0 20px;
+
+    main {
+        border: 1px solid #D8D8D8;
+        border-left-style: none;
+        border-right-style: none;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+
+        ul {
+            list-style-type: none;
+            margin: 40px 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+
+            @media (max-width: 768px) {
+                padding: 10px 5px;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .image {
+
+        h1 {
+            color: #006AFF;
+            text-align: center;
+            padding-bottom: 20px;
+            @include center;
+
+            @media (max-width: 768px) {
+                padding-bottom: 0;
+            }
+
+            span {
+                margin-right: 15px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            img {
+                margin: 0 5px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        div {
+            height: 290px;
+            background-image: url('../assets/footer.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            @media (max-width: 768px) {
+                height: 200px;
+            }
+        }
+    }
+}

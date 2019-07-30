@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import home from '../assets/home.png'
-import facebook from '../assets/facebook.png'
-import twitter from '../assets/twitter.png'
+import Footer from './Footer'
 import '../styles/landing.scss'
 
 export default class Landing extends Component {
@@ -19,6 +17,7 @@ export default class Landing extends Component {
                     <div className='container'>
                         <h1>We have the best listings with constant new updates.</h1>
                         <h1>So you'll never miss a beat.</h1>
+                        <span></span>
                         <div>
                             <section>
                                 <h2>Buy a home</h2>
@@ -53,31 +52,7 @@ export default class Landing extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='footer'>
-                    <main>
-                        <ul>
-                            <li>About</li>
-                            <li>Estimates</li>
-                            <li>Research</li>
-                            <li>Careers</li>
-                            <li>Help</li>
-                            <li>Advertise</li>
-                            <li>Terms of use and Privacy</li>
-                            <li>Ad Choice</li>
-                            <li>Blog</li>
-                            <li>AI</li>
-                        </ul>
-                    </main>
-                    <div className='image'>
-                        <h1>
-                            <img src={home} height='36px' width='36px' alt='logo' />
-                            <span>Zellow</span>
-                            <img src={facebook} height='36px' width='36px' alt='logo' />
-                            <img src={twitter} height='36px' width='36px' alt='logo' />
-                        </h1>
-                        <div></div>
-                    </div>
-                </div>
+                <Footer />
             </div>
         )
     }
