@@ -34,7 +34,7 @@ export default class Post extends Component {
                             <button>Create a listing</button>
                         </section>
                         <section className='img-container'>
-                            <img src={type} height='300px' width='400px' alt='pic' />
+                            <img src={type} alt='pic' />
                         </section>
                     </div>
                 </div>

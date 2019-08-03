@@ -53,20 +53,45 @@
     }
 
     .list-your-property {
-        @include center;
-        padding: 100px;
+        padding: 80px 20px;
+
+        @media (max-width: 768px) {
+            padding: 80px 5px;
+        }
 
         .container {
-            display: flex;
-            width: 1300px;
+            max-width: 1000px;
+            @media (min-width: 768px) {
+                display: flex;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 768px) {
+                text-align: center;
+            }
         }
 
         section {
-            width: 50%;
+            @media (min-width: 768px) {
+                width: 50%;
+            }
+
+            @media (max-width: 768px) {
+                margin-bottom: 50px;
+            }
         }
 
         .img-container {
-            text-align: center;
+            text-align: right;
+
+            @media (max-width: 768px) {
+                text-align: center;
+            }
+
+            img {
+                max-height: 300px; 
+                max-width: 400px;
+            }
         }
 
         h1 {
@@ -76,6 +101,10 @@
             padding-bottom: 10px;
             margin-bottom: 10px;
             border-bottom: 5px solid #1B5098;
+
+            @media (max-width: 768px) {
+                margin: 0 auto;
+            }
         }
 
         p {
