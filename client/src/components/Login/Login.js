@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Footer from './Footer'
+import Footer from '../Footer/Footer'
 import { NavLink } from 'react-router-dom'
-import '../styles/user.scss'
+import './Login.scss'
 
 export default class Login extends Component {
 

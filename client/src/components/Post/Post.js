@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
 import type from '../assets/type.jpg'
-import '../styles/post.scss'
+import './Post.scss'
 
 export default class Post extends Component {
 
@@ -37,6 +38,7 @@ export default class Post extends Component {
                         </section>
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }

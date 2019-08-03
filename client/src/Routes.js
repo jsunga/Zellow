@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login'
-import Register from './components/Register'
-import Post from './components/Post'
+import Navbar from './components/Navbar/Navbar'
+import Landing from './components/Landing/Landing'
+import Login from './components/Login/Login'
+import Register from './components/Login/Register'
+import Post from './components/Post/Post'
 
 const Routes = () => (
     <Router>

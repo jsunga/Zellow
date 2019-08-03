@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Footer from './Footer'
-import '../styles/landing.scss'
+import Footer from '../Footer/Footer'
+import './Landing.scss'
 
 export default class Landing extends Component {
     render() {
