@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import home from '../assets/home.png'
-import facebook from '../assets/facebook.png'
-import twitter from '../assets/twitter.png'
+import home from '../../assets/home.png'
+import facebook from '../../assets/facebook.png'
+import twitter from '../../assets/twitter.png'
 import './Footer.scss'
 
 export default class Footer extends Component {

@@ -1,10 +1,10 @@
-@import '../styling/varaibles';
+@import '../../styling/variables';
 
 .landing {
 
     .background {
         height: 90vh;
-        background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../assets/landing.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../../assets/landing.jpg');
         background-size: cover;
         background-position: top;
 
@@ -35,7 +35,7 @@
                 padding: 20px;
                 border-radius: 5px;
                 border: none;
-                background-image: url('../assets/magnifier.png');
+                background-image: url('../../assets/magnifier.png');
                 background-repeat: no-repeat;
                 background-position: 640px; 
 

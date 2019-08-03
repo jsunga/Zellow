@@ -1,4 +1,4 @@
-@import '../styling/varaibles';
+@import '../../styling/variables';
 
 .post {
     font-family: $primary-font;
@@ -7,7 +7,7 @@
         @include center;
         height: 560px;
         width: 100%;
-        background-image: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('../assets/kitchen.jpeg');
+        background-image: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('../../assets/kitchen.jpeg');
         background-size: cover;
         background-position: center;
 

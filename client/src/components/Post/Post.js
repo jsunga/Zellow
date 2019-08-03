@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
-import type from '../assets/type.jpg'
+import type from '../../assets/type.jpg'
 import './Post.scss'
 
 export default class Post extends Component {
