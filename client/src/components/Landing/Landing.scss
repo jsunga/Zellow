@@ -64,9 +64,15 @@
         padding: 80px 20px;
         margin-bottom: 50px;
 
+        @media (max-width: 866px) {
+            padding: 80px 5px;
+        }
+
         .container {
-            max-width: 1220px;
-            margin: 0 auto;
+            @media (min-width: 768px) {
+                max-width: 1220px;
+                margin: 0 auto;
+            }
 
             h1 {
                 text-align: center;
@@ -83,12 +89,14 @@
             }
 
             div {
-                display: flex;
+                @media (min-width: 768px) {
+                    display: flex;
+                }
+                
                 margin-top: 50px;
 
                 section {
                     font-family: $secondary-font;
-                    width: 33.33%;
                     background-color: white;
                     border: 1px solid #f0f0f0;
                     box-shadow: 2px 2px 2px #f0f0f0;
@@ -96,6 +104,14 @@
                     margin: 0 10px;
                     text-align: center;
                     transition: transform .5s ease-out;
+
+                    @media (min-width: 866px) {
+                        width: 33.33%;
+                    }
+
+                    @media (max-width: 866px) {
+                        margin-bottom: 20px;
+                    }
 
                     &:hover {
                         cursor: pointer;

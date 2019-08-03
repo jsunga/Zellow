@@ -11,7 +11,6 @@ export default class Navbar extends Component {
                 <section className='left-container'>
                     <ul className='left-wrapper'>
                         <Link to='/for_rent' className='link'><li>Rent</li></Link>
-                        <Link to='/homes' className='link'><li>Buy</li></Link>
                         <li><form><input placeholder='Enter city or ZIP code' /></form></li>
                     </ul>
                 </section>
@@ -21,7 +20,6 @@ export default class Navbar extends Component {
                 <section className='right-container'>
                     <ul className='right-wrapper'>
                         <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
-                        <Link to='/sell' className='link'><li>Sell</li></Link>
                         <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
                     </ul>
                 </section>
@@ -31,9 +29,7 @@ export default class Navbar extends Component {
                         <li><form><input placeholder='Enter city or ZIP code' /></form></li>
                         <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
                         <Link to='/for_rent' className='link'><li>Rent</li></Link>
-                        <Link to='/homes' className='link'><li>Buy</li></Link>
                         <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
-                        <Link to='/sell' className='link'><li>Sell</li></Link>
                     </ul>
                 </div>
             </div>
