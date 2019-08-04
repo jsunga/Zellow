@@ -15,7 +15,7 @@ const Routes = () => (
             <Route exact path='/user/login' component={Login} />
             <Route exact path='/user/register' component={Register} />
             <Route exact path='/list_your_rental' component={Post} />
-            <Route exact path='/for_rent' component={Home} />
+            <Route exact path="/for_rent" render={props => <Home key={props.location.search} {...props} />} />
         </Switch>
     </Router>
 )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { asyncForEach } from '../../utils'
 import Filter from './Filter'
 import Listings from './Listings'
 import axios from 'axios'
@@ -7,26 +8,34 @@ import './Home.scss'
 export default class Home extends Component {
 
     state = {
-        listings: []
+        listings: [],
+        isLoading: true,
     }
 
     componentDidMount() {
-        this.getAllListings()
+        const query = this.props.location.search
+        if (query === '?queue=' || query === '?queue=all' || query.length === 0) this.getAllListings()
+        else this.handleSearch(query)
     }
 
-    getAllListings = _ => {
-        axios.get('/api/listing')
-        .then(res => {
-            let listings = res.data
-            let newListings = []
-            listings.forEach(listing => { if (listing.confirmation === true) newListings.push(listing) })
-            newListings.forEach(listing => {
-                axios.get(`/api/listing/photos/${listing.listing_id}`)
-                .then(res => {
-                    listing.thumbnail = res.data[0].photo_url
-                    this.setState({ listings: newListings })
-                })
-            })
+    handleSearch = async query => {
+        let listings = await axios.get(`/api/listing/search/${query}`)
+        if (listings.data.length === 0) this.setState({ noResults: true })
+        else this.getThumbnails(listings)
+    }
+
+    getAllListings = async _ => {
+        let listings = await axios.get('/api/listing')
+        this.getThumbnails(listings)
+    }
+
+    getThumbnails = async listings => {
+        let newListings = []
+        listings.data.forEach(listing => { if (listing.confirmation === true) newListings.push(listing) })
+        asyncForEach(newListings, async listing => {
+            let photos = await axios.get(`/api/listing/photos/${listing.listing_id}`)
+            listing.thumbnail = photos.data[0].photo_url
+            this.setState({ listings: newListings })
         })
     }
 

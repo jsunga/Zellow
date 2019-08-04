@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import home from '../../assets/home.png'
 import './Navbar.scss'
 
-export default class Navbar extends Component {
+class Navbar extends Component {
+
+    state = {
+        query: ''
+    }
+
+    handleSearch = e => {
+        e.preventDefault()
+        let query = this.state.query
+        query = query.replace(/ /g,"+")
+        this.props.history.push(`/for_rent/?queue=${query}`)
+    }
 
     render() {
         return (
@@ -11,7 +22,15 @@ export default class Navbar extends Component {
                 <section className='left-container'>
                     <ul className='left-wrapper'>
                         <Link to='/for_rent' className='link'><li>Rent</li></Link>
-                        <li><form><input placeholder='Enter city or ZIP code' /></form></li>
+                        <li>
+                            <form onSubmit={this.handleSearch}>
+                                <input 
+                                    placeholder='Enter city or ZIP code' 
+                                    value={this.state.query}
+                                    onChange={e => this.setState({query: e.target.value})}
+                                />
+                            </form>
+                        </li>
                     </ul>
                 </section>
                 <section className='middle-container'>
@@ -37,3 +56,5 @@ export default class Navbar extends Component {
     }
 
 }
+
+export default withRouter(Navbar)
