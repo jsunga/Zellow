@@ -55,6 +55,12 @@
         width: 100%;
         overflow: auto;
 
+        h1 {
+            margin: 0;
+            margin: 25px 40px;
+            font-family: $secondary-font;
+        }
+
         .listings {
             width: 1500px;
             margin: 0 auto;

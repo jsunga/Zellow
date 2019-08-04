@@ -10,6 +10,7 @@ export default class Home extends Component {
     state = {
         listings: [],
         isLoading: true,
+        noResults: false,
     }
 
     componentDidMount() {
@@ -46,7 +47,7 @@ export default class Home extends Component {
                     <Filter />
                 </div>
                 <div className='right-container'>
-                    <Listings listings={this.state.listings} />
+                    {this.state.noResults ? <h1>No Results...</h1> : <Listings listings={this.state.listings} /> }
                 </div>
             </div>
         )

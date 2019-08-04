@@ -3,14 +3,31 @@ import Footer from '../Footer/Footer'
 import './Landing.scss'
 
 export default class Landing extends Component {
+
+    state = {
+        query: ''
+    }
+
+    handleSearch = e => {
+        e.preventDefault()
+        let query = this.state.query
+        query = query.replace(/ /g,"+")
+        this.props.history.push(`/for_rent/?queue=${query}`)
+    }
+
     render() {
         return (
             <div className='landing'>
                 <div className='background'>
                     <h1>Homes in the Bay Area</h1>
                     <h2>We'll help you find a place you'll love.</h2>
-                    <form>
-                        <input type='text' placeholder='Enter a city or ZIP code' />
+                    <form onSubmit={this.handleSearch}>
+                        <input 
+                            type='text' 
+                            placeholder='Enter a city or ZIP code' 
+                            value={this.state.query}
+                            onChange={e => this.setState({query: e.target.value})}
+                        />
                     </form>
                 </div>
                 <div className='details'>
@@ -56,4 +73,5 @@ export default class Landing extends Component {
             </div>
         )
     }
+
 }
