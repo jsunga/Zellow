@@ -21,7 +21,6 @@ class Navbar extends Component {
             <div className='navbar'>
                 <section className='left-container'>
                     <ul className='left-wrapper'>
-                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                         <li>
                             <form onSubmit={this.handleSearch}>
                                 <input 
@@ -38,6 +37,7 @@ class Navbar extends Component {
                 </section>
                 <section className='right-container'>
                     <ul className='right-wrapper'>
+                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                         <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
                         <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
                     </ul>
@@ -55,8 +55,8 @@ class Navbar extends Component {
                             </form>
                         </li>
                         <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
-                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                         <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
+                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                     </ul>
                 </div>
             </div>

@@ -19,8 +19,9 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
+        //get search input
         const query = this.props.location.search
-        //parse the query
+        //parse the query for filtering
         const parsed = queryString.parse(query)
 
         //save the query in filter options
@@ -32,6 +33,7 @@ export default class Home extends Component {
             priceMax: parsed.priceMax,
         })
         
+        //get all listings if no search input
         if (query === '?queue=' || query === '?queue=all' || query.length === 0) this.getAllListings()
         else this.handleSearch(query)
     }
