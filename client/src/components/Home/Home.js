@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { asyncForEach } from '../../utils'
 import Filter from './Filter'
+import MobileFilter from './MobileFilter'
 import Listings from './Listings'
 import queryString from 'query-string'
 import axios from 'axios'
@@ -12,6 +13,7 @@ export default class Home extends Component {
         listings: [],
         isLoading: true,
         noResults: false,
+        filter: false,
         type: '',
         beds: '',
         baths: '',
@@ -98,6 +100,10 @@ export default class Home extends Component {
                     <Filter {...props} />
                 </div>
                 <div className='right-container'>
+                    <div className='toggle-filter'>
+                        <button onClick={() => this.setState({ filter: !this.state.filter })}>Filter</button>
+                    </div>
+                    {this.state.filter ? <MobileFilter {...props} /> : null }
                     {this.state.noResults ? <h1>No Results...</h1> : <Listings listings={this.state.listings} /> }
                 </div>
             </div>
