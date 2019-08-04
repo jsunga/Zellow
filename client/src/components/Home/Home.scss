@@ -20,6 +20,8 @@
             }
 
             label {
+                font-family: $secondary-font;
+                font-size: 18px;
                 display: block;
                 padding-bottom: 5px
             }
@@ -51,5 +53,46 @@
         background-color: #FAFAFA;
         height: 100%;
         width: 100%;
+        overflow: auto;
+
+        .listings {
+            width: 1500px;
+            margin: 0 auto;
+
+            @media (max-width: 1725px) {
+                width: 1200px;
+            }
+
+            @media (max-width: 1420px) {
+                width: 900px;
+            }
+
+            @media (max-width: 1110px) {
+                width: 600px;
+            }
+
+            h2 {
+                color: #383841;
+                margin: 0;
+                margin-top: 20px;
+                margin-left: 9px;
+            }
+
+            .card {
+                width: 280px;
+                display: inline-block;
+                margin: 20px 9px;
+                padding-bottom: 15px;
+                background-color: white;
+                border: 1px solid #EDEDED;
+                border-bottom: 2px solid $blue;
+    
+                img {
+                    width: 278px;
+                    height: 150px;
+                    border: 1px solid #dfdfdf;
+                }
+            }
+        }
     }
 }
