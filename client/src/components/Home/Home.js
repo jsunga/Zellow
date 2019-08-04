@@ -19,11 +19,7 @@ export default class Home extends Component {
         .then(res => {
             let listings = res.data
             let newListings = []
-            listings.forEach(listing => {
-                if (listing.confirmation === true) {
-                    newListings.push(listing)
-                }
-            })
+            listings.forEach(listing => { if (listing.confirmation === true) newListings.push(listing) })
             newListings.forEach(listing => {
                 axios.get(`/api/listing/photos/${listing.listing_id}`)
                 .then(res => {
