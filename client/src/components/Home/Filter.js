@@ -3,7 +3,7 @@ import './Home.scss'
 
 const Filter = props => {
     return (
-        <main>
+        <form onSubmit={props.filterSearch}>
             <h2>Filter by</h2>
             <label>Home Type</label>
             <select name="type" value={props.type} onChange={props.changeType}>
@@ -49,7 +49,7 @@ const Filter = props => {
                 <option value="10000">$10,000</option>
             </select>
             <button>Apply filter</button>
-        </main>
+        </form>
     )
 }
 

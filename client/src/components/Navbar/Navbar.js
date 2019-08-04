@@ -21,7 +21,7 @@ class Navbar extends Component {
             <div className='navbar'>
                 <section className='left-container'>
                     <ul className='left-wrapper'>
-                        <Link to='/for_rent' className='link'><li>Rent</li></Link>
+                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                         <li>
                             <form onSubmit={this.handleSearch}>
                                 <input 
@@ -45,9 +45,17 @@ class Navbar extends Component {
                 <div className='mobile'>
                     <Link to='/' className='link'><h1><img src={home} height='36px' width='36px' alt='logo' />Zellow</h1></Link>
                     <ul>
-                        <li><form><input placeholder='Enter city or ZIP code' /></form></li>
+                        <li>
+                            <form onSubmit={this.handleSearch}>
+                                <input 
+                                    placeholder='Enter city or ZIP code' 
+                                    value={this.state.query}
+                                    onChange={e => this.setState({query: e.target.value})}
+                                />
+                            </form>
+                        </li>
                         <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
-                        <Link to='/for_rent' className='link'><li>Rent</li></Link>
+                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
                         <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
                     </ul>
                 </div>
