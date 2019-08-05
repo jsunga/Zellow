@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import AliceCarousel from 'react-alice-carousel';
+import "react-alice-carousel/lib/alice-carousel.css";
 import './Listing.scss'
 import axios from 'axios'
 
@@ -7,7 +9,8 @@ export default class Listing extends Component {
     state = {
         listing: [],
         photos: [],
-        tags: []
+        tags: [],
+        isLoading: true,
     }
 
     componentDidMount() {
@@ -20,8 +23,7 @@ export default class Listing extends Component {
         let details = await axios.get(`/api/listing/retrieve/${id}`)
         this.setState({ listing: details.data })
         let photos = await axios.get(`/api/listing/photos/${details.data.listing_id}`)
-        this.setState({ photos: photos.data })
-        console.log(this.state.listing)
+        this.setState({ photos: photos.data, isLoading: false })
     }
 
     getTags = async id => {
@@ -35,15 +37,21 @@ export default class Listing extends Component {
     }
 
     render() {
-        const { listing, photos, tags } = this.state
+        const { listing, photos, tags, isLoading } = this.state
         return (
             <div className='listing'>
                 <div className='left-container'>
-                    <h1>${listing.price} <span>{listing.address}, {listing.zipcode}</span></h1>
+                    <h1 className='top'>${listing.price} <span>{listing.address}, {listing.zipcode}</span></h1>
                     <section className='image-gallery'>
-
+                        {isLoading ? null : (
+                            <AliceCarousel>
+                                {photos.map(item => (
+                                    <img src={item.photo_url} className="carousel" key={item.photo_url} alt='photos' />
+                                ))}
+                            </AliceCarousel>
+                        )}
                     </section>
-                    <section className='overview'>
+                    <section>
                         <h1>Overview</h1>
                         <ul>
                             <li>{listing.housing_type}</li>
