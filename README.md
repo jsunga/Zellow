@@ -8,7 +8,3 @@ Sell, rent or find homes in the Bay Area.
 - Node.js
 - Express.js
 - Postgres
-- Redis
-
-## Contributors
-- Jawyn Sunga
