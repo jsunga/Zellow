@@ -78,7 +78,7 @@ export default class Listing extends Component {
                         )}
                     </section>
                     <section className='message'>
-                        <h2>Send message to owner</h2>
+                        <h2>Contact Owner</h2>
                         <form>
                             <textarea />
                             <button>Send</button>
