@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Leaflet from './Leaflet'
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 import './Listing.scss'
@@ -10,7 +11,6 @@ export default class Listing extends Component {
         listing: [],
         photos: [],
         tags: [],
-        isLoading: true,
     }
 
     componentDidMount() {
@@ -23,7 +23,7 @@ export default class Listing extends Component {
         let details = await axios.get(`/api/listing/retrieve/${id}`)
         this.setState({ listing: details.data })
         let photos = await axios.get(`/api/listing/photos/${details.data.listing_id}`)
-        this.setState({ photos: photos.data, isLoading: false })
+        this.setState({ photos: photos.data })
     }
 
     getTags = async id => {
@@ -37,13 +37,13 @@ export default class Listing extends Component {
     }
 
     render() {
-        const { listing, photos, tags, isLoading } = this.state
+        const { listing, photos, tags } = this.state
         return (
             <div className='listing'>
                 <div className='left-container'>
                     <h1 className='top'>${listing.price} <span>{listing.address}, {listing.zipcode}</span></h1>
                     <section className='image-gallery'>
-                        {isLoading ? null : (
+                        {photos.length === 0 ? null : (
                             <AliceCarousel>
                                 {photos.map(item => (
                                     <img src={item.photo_url} className="carousel" key={item.photo_url} alt='photos' />
@@ -66,7 +66,24 @@ export default class Listing extends Component {
                     </section>
                 </div>
                 <div className='right-container'>
-
+                    <section className='map'>
+                        <Leaflet />
+                    </section>
+                    <section className='tags'>
+                        <h2>Tags</h2>
+                        {tags.length === 0 ? null : (
+                            tags.map(item => (
+                                <div>{item.tag_name}</div>
+                            ))
+                        )}
+                    </section>
+                    <section className='message'>
+                        <h2>Send message to owner</h2>
+                        <form>
+                            <textarea />
+                            <button>Send</button>
+                        </form>
+                    </section>
                 </div>
             </div>
         )

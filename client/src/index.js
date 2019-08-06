@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'leaflet/dist/leaflet.css'
 import './index.scss'
 import Routes from './Routes'
 import * as serviceWorker from './serviceWorker'
