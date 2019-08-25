@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Navbar from '../Navbar/Navbar'
 import Leaflet from './Leaflet'
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -38,7 +39,10 @@ export default class Listing extends Component {
 
     render() {
         const { listing, photos, tags } = this.state
+
         return (
+            <>
+            <Navbar />
             <div className='listing'>
                 <div className='left-container'>
                     <h1 className='top'>${listing.price} <span>{listing.address}, {listing.zipcode}</span></h1>
@@ -86,6 +90,7 @@ export default class Listing extends Component {
                     </section>
                 </div>
             </div>
+            </>
         )
     }
 

@@ -6,7 +6,8 @@ import './Navbar.scss'
 class Navbar extends Component {
 
     state = {
-        query: ''
+        query: '',
+        user_id: localStorage.getItem('user_id')
     }
 
     handleSearch = e => {
@@ -14,6 +15,11 @@ class Navbar extends Component {
         let query = this.state.query
         query = query.replace(/ /g,"+")
         this.props.history.push(`/for_rent/?queue=${query}`)
+    }
+
+    handleLogOut = () => {
+        localStorage.removeItem('user_id')
+        this.props.history.push('/user/login')
     }
 
     render() {
@@ -36,11 +42,19 @@ class Navbar extends Component {
                     <Link to='/' className='link'><h1><img src={home} height='36px' width='36px' alt='logo' />Zellow</h1></Link>
                 </section>
                 <section className='right-container'>
-                    <ul className='right-wrapper'>
-                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
-                        <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
-                        <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
-                    </ul>
+                    {this.state.user_id ? (
+                        <ul className='right-wrapper'>
+                            <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
+                            <Link to='/dashboard' className='link'><li>Dashboard</li></Link>
+                            <li><button onClick={this.handleLogOut}>Log Out</button></li>
+                        </ul>
+                    ) : (
+                        <ul className='right-wrapper'>
+                            <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
+                            <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
+                            <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
+                        </ul>
+                    )}
                 </section>
                 <div className='mobile'>
                     <Link to='/' className='link'><h1><img src={home} height='36px' width='36px' alt='logo' />Zellow</h1></Link>
@@ -54,9 +68,19 @@ class Navbar extends Component {
                                 />
                             </form>
                         </li>
-                        <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
-                        <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
-                        <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
+                        {this.state.user_id ? (
+                            <>
+                                <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
+                                <Link to='/dashboard' className='link'><li>Dashboard</li></Link>
+                                <li><button onClick={this.handleLogOut}>Log Out</button></li>
+                            </>
+                        ) : (
+                            <>
+                                <Link to='/user/login' className='link'><li>Sign in or Join</li></Link>
+                                <Link to='/list_your_rental' className='link'><li>List your rental</li></Link>
+                                <Link to='/for_rent/?queue=' className='link'><li>Rent</li></Link>
+                            </>
+                        )}
                     </ul>
                 </div>
             </div>

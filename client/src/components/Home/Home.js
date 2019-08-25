@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { asyncForEach } from '../../utils'
+import Navbar from '../Navbar/Navbar'
 import Filter from './Filter'
 import MobileFilter from './MobileFilter'
 import Listings from './Listings'
@@ -95,6 +96,8 @@ export default class Home extends Component {
         }
 
         return (
+            <>
+            <Navbar />
             <div className='home'>
                 <div className='left-container'>
                     <Filter {...props} />
@@ -107,6 +110,7 @@ export default class Home extends Component {
                     {this.state.noResults ? <h1>No Results...</h1> : <Listings listings={this.state.listings} /> }
                 </div>
             </div>
+            </>
         )
     }
 

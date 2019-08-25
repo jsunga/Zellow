@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
+import Navbar from '../Navbar/Navbar'
 import './Landing.scss'
 
 export default class Landing extends Component {
@@ -17,6 +18,8 @@ export default class Landing extends Component {
 
     render() {
         return (
+            <>
+            <Navbar />
             <div className='landing'>
                 <div className='background'>
                     <h1>Homes in the Bay Area</h1>
@@ -71,6 +74,7 @@ export default class Landing extends Component {
                 </div>
                 <Footer />
             </div>
+            </>
         )
     }
 

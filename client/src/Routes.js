@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
 import Landing from './components/Landing/Landing'
 import Login from './components/Login/Login'
 import Register from './components/Login/Register'
@@ -10,7 +9,6 @@ import Listing from './components/Listing/Listing'
 
 const Routes = () => (
     <Router>
-        <Navbar />
         <Switch>
             <Route exact path='/' component={Landing} />
             <Route exact path='/user/login' component={Login} />
