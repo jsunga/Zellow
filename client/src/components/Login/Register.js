@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
+import { NavLink, Redirect } from 'react-router-dom'
+import { BarLoader } from 'react-spinners'
+import { css } from '@emotion/core'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
-import { NavLink, Redirect } from 'react-router-dom'
 import './Login.scss'
 import axios from 'axios'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    margin-top: 20px;
+`
 
 export default class Register extends Component {
 
@@ -13,6 +22,7 @@ export default class Register extends Component {
         firstname: '',
         lastname: '',
         password: '',
+        loading: false
     }
 
     componentDidMount() {
@@ -38,16 +48,19 @@ export default class Register extends Component {
         const err = this.validate()
         if (!err) {
             try {
+                this.setState({ loading: true })
                 let register = await axios.post('/api/user/register', {
                     email: this.state.email,
                     firstname: this.state.firstname,
                     lastname: this.state.lastname,
                     password: this.state.password,
+                    loading: false
                 })
                 localStorage.setItem('user_id', register.data.user_id)
                 this.props.history.goBack()
             }
             catch(err) {
+                this.setState({ loading: false })
                 if (err.response.data === 'email already used') alert('Email already used')
                 else if (err.response.data === 'invalid email') alert('Invalid email')
             }
@@ -94,7 +107,14 @@ export default class Register extends Component {
                             <input placeholder='Last Name' onChange={(e) => {this.setState({lastname: e.target.value})}} />
                             <input type='password' placeholder='Create password' onChange={(e) => {this.setState({password: e.target.value})}} />
                             <span>At least 6 characters</span>
-                            <button>Submit</button>
+                            <BarLoader
+                                css={override}
+                                sizeUnit={"px"}
+                                width={410}
+                                color={'#006AFF'}
+                                loading={this.state.loading}
+                            />
+                            {this.state.loading ? null : <button>Submit</button>}
                         </form>
                     </section>
                 </div>

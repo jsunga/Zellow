@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
+import { NavLink, Redirect } from 'react-router-dom'
+import { BarLoader } from 'react-spinners'
+import { css } from '@emotion/core'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
-import { NavLink, Redirect } from 'react-router-dom'
 import './Login.scss'
 import axios from 'axios'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    margin-top: 20px;
+`
 
 export default class Login extends Component {
 
     state = {
         user_id: localStorage.getItem('user_id'),
         email: '',
-        password: ''
+        password: '',
+        loading: false
     }
 
     componentDidMount() {
@@ -32,14 +42,17 @@ export default class Login extends Component {
         const err = this.validate()
         if (!err) {
             try {
+                this.setState({ loading: true })
                 let login = await axios.post('/api/user/login', {
                     email: this.state.email,
-                    password: this.state.password
+                    password: this.state.password,
+                    loading: false
                 })
                 localStorage.setItem('user_id', login.data.user_id)
                 this.props.history.goBack()
             }
             catch(err) {
+                this.setState({ loading: false })
                 if (err.response.data === 'login failed') alert('Invalid email or password')
             }
         }
@@ -82,7 +95,14 @@ export default class Login extends Component {
                         <form onSubmit={this.handleLogin}>
                             <input placeholder='Enter email' onChange={(e) => {this.setState({email: e.target.value})}} />
                             <input type='password' placeholder='Enter password' onChange={(e) => {this.setState({password: e.target.value})}} />
-                            <button>Sign in</button>
+                            <BarLoader
+                                css={override}
+                                sizeUnit={"px"}
+                                width={410}
+                                color={'#006AFF'}
+                                loading={this.state.loading}
+                            />
+                            {this.state.loading ? null : <button>Sign in</button>}
                         </form>
                     </section>
                 </div>
