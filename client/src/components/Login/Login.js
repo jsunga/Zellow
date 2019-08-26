@@ -13,6 +13,10 @@ export default class Login extends Component {
         password: ''
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     validate = () => {
         let isError = false
         const { email, password } = this.state
@@ -33,7 +37,7 @@ export default class Login extends Component {
                     password: this.state.password
                 })
                 localStorage.setItem('user_id', login.data.user_id)
-                this.props.history.push('/')
+                this.props.history.goBack()
             }
             catch(err) {
                 if (err.response.data === 'login failed') alert('Invalid email or password')

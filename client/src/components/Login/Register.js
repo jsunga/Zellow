@@ -15,6 +15,10 @@ export default class Register extends Component {
         password: '',
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     validate = () => {
         let isError = false
         const { email, firstname, lastname, password } = this.state
@@ -41,7 +45,7 @@ export default class Register extends Component {
                     password: this.state.password,
                 })
                 localStorage.setItem('user_id', register.data.user_id)
-                this.props.history.push('/')
+                this.props.history.goBack()
             }
             catch(err) {
                 if (err.response.data === 'email already used') alert('Email already used')

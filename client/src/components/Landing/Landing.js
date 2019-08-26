@@ -47,7 +47,7 @@ export default class Landing extends Component {
                                     Donec vehicula porta erat ut mattis. Nam dapibus lectus tempus 
                                     eros auctor, et accumsan mi vestibulum.
                                 </p>
-                                <button>Search homes</button>
+                                <button onClick={() => this.props.history.push('/for_rent/?queue=')}>Search homes</button>
                             </section>
                             <section>
                                 <h2>Sell a home</h2>
@@ -57,7 +57,7 @@ export default class Landing extends Component {
                                     nisi. Nulla quis accumsan ex. Aliquam eu urna et leo venenatis 
                                     faucibus vitae sit amet tellus.
                                 </p>
-                                <button>See your options</button>
+                                <button onClick={() => this.props.history.push('/list_your_rental')}>See your options</button>
                             </section>
                             <section>
                                 <h2>Rent a home</h2>
@@ -67,7 +67,7 @@ export default class Landing extends Component {
                                     at imperdiet nec, molestie id leo. Donec maximus sem et mi posuere.
                                     Curabitur vel nisi magna.
                                 </p>
-                                <button>Find rentals</button>
+                                <button onClick={() => this.props.history.push('/for_rent/?queue=')}>Find rentals</button>
                             </section>
                         </div>
                     </div>
