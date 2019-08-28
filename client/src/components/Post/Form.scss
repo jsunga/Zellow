@@ -1,0 +1,24 @@
+@import '../../styling/variables';
+
+.post-form {
+    max-width: 500px;
+    margin: 0 auto;
+
+    h1 {
+        font-family: $secondary-font;
+        text-align: center;
+    }
+
+    section {
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #006AFF;
+        }
+        select {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #006AFF;
+        }
+    }
+}
