@@ -44,7 +44,7 @@ export default class Listing extends Component {
             <>
             <Navbar />
             <div className='listing'>
-                <div className='left-container'>
+                <div className='left-container' id="style-7">
                     <h1 className='top'>${listing.price} <span>{listing.address}, {listing.zipcode}</span></h1>
                     <section className='image-gallery'>
                         {photos.length === 0 ? null : (

@@ -54,7 +54,7 @@ export default class Home extends Component {
 
     getThumbnails = async listings => {
         let newListings = []
-        listings.data.forEach(listing => { if (listing.confirmation === true) newListings.push(listing) })
+        listings.data.forEach(listing => { newListings.push(listing) }) //if (listing.confirmation === true)
         asyncForEach(newListings, async listing => {
             let photos = await axios.get(`/api/listing/photos/${listing.listing_id}`)
             listing.thumbnail = photos.data[0].photo_url
