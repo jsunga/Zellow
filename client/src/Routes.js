@@ -8,6 +8,7 @@ import Home from './components/Home/Home'
 import Listing from './components/Listing/Listing'
 import Form from './components/Post/Form'
 import Dashboard from './components/Dashboard/Dashboard'
+import Error from './components/Error/Error'
 
 const Routes = () => (
     <Router>
@@ -20,6 +21,9 @@ const Routes = () => (
             <Route exact path='/listing/:id' component={Listing} />
             <Route exact path='/post' component={Form} />
             <Route exact path='/dashboard' component={Dashboard} />
+
+            <Route exact path="/404" component={Error} />
+            <Route component={Error} />
         </Switch>
     </Router>
 )

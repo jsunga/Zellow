@@ -18,8 +18,8 @@ export default class Login extends Component {
 
     state = {
         user_id: localStorage.getItem('user_id'),
-        email: '',
-        password: '',
+        email: 'jay@mail.com',
+        password: '123456',
         loading: false
     }
 
@@ -93,8 +93,8 @@ export default class Login extends Component {
                     </main>
                     <section>
                         <form onSubmit={this.handleLogin}>
-                            <input placeholder='Enter email' onChange={(e) => {this.setState({email: e.target.value})}} />
-                            <input type='password' placeholder='Enter password' onChange={(e) => {this.setState({password: e.target.value})}} />
+                            <input placeholder='Enter email' value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
+                            <input type='password' placeholder='Enter password' value={this.state.password} onChange={(e) => {this.setState({password: e.target.value})}} />
                             <BarLoader
                                 css={override}
                                 sizeUnit={"px"}

@@ -7,4 +7,55 @@
         font-family: $secondary-font;
         border-bottom: 1px solid grey;
     }
+
+    .chatroom {
+        height: calc(100vh - 240px);
+        overflow: auto;
+    }
+
+    .you {
+        margin: 10px;
+        padding: 10px;
+        text-align: right;
+    }
+
+    .you-message {
+        border: 1px solid #0B93F6;
+        background-color: #0B93F6;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .other {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .other-message {
+        border: 1px solid #E5E5EA;
+        background-color: #E5E5EA;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    form {
+        height: 40px;
+        width: 700px;
+        margin: 0 auto;
+
+        input {
+            height: 35px;
+            width: 530px;
+            padding: 0px 15px;
+        }
+
+        button {
+            padding: 13px 53px;
+            border: none;
+            background-color: grey;
+            font-family: $primary-font;
+            font-weight: bold;
+        }
+    }
 }

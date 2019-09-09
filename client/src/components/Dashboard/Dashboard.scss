@@ -61,6 +61,17 @@
                     border-bottom: 1px solid grey;
                     font-family: $secondary-font;
                 }
+                
+                .listing-conversations {
+                    padding: 0px 15px 12px 17px;
+
+                    div {
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #F0F0F0;
+                        }
+                    }
+                }
             }
         }
 

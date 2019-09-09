@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './MyListings.scss'
 import axios from 'axios'
 
@@ -26,7 +26,6 @@ export default class MyListings extends Component {
                             axios.get(`/api/listing/photos/${list.listing_id}`)
                             .then(res => {
                                 list.thumbnail = res.data[0].photo_url
-                                console.log(temp)
                                 this.setState({
                                     listings: temp,
                                     isLoading: false,
@@ -54,7 +53,7 @@ export default class MyListings extends Component {
                 <h2>My Listings</h2>
                 <main>
                 {this.state.listings.map(item => (
-                    <Link to={`listing/${item.listing_id}`} className='link'><div className='listing-wrapper' key={item.listing_id}>
+                    <Link to={`listing/${item.listing_id}`} className='link' key={item.listing_id}><div className='listing-wrapper'>
                         <section className='listing-left-container'>
                             <img src={item.thumbnail} width='175' height='100' alt='thumbnail' />
                         </section>

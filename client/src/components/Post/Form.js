@@ -88,7 +88,7 @@ export default class Form extends Component {
                 })
                 .then(res => {
                     console.log(res.data)
-                    this.props.history.push('/mylistings')
+                    this.props.history.push('/dashboard')
                 })
                 .catch(err => {
                     this.setState({ isLoading: false })

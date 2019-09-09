@@ -12,6 +12,7 @@ export default class Listing extends Component {
         listing: [],
         photos: [],
         tags: [],
+        message: '',
     }
 
     componentDidMount() {
@@ -35,6 +36,20 @@ export default class Listing extends Component {
         catch(err) {
             console.log(err)
         }
+    }
+
+    newMessage = e => {
+        e.preventDefault()
+        axios.post('/api/message/newMessage', {
+            listingId: this.state.listing.listing_id,
+            message: this.state.message
+        })
+        .then(() => {
+            this.props.history.push('/dashboard')
+        })
+        .catch(err => {
+            console.log(err.response.data)
+        })
     }
 
     render() {
@@ -83,8 +98,8 @@ export default class Listing extends Component {
                     </section>
                     <section className='message'>
                         <h2>Contact Owner</h2>
-                        <form>
-                            <textarea />
+                        <form onSubmit={this.newMessage}>
+                            <textarea onChange={e => {this.setState({message: e.target.value})}} />
                             <button>Send</button>
                         </form>
                     </section>
