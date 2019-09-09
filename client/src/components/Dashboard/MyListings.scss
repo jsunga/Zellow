@@ -1,0 +1,48 @@
+@import '../../styling/variables';
+
+.my-listings {
+
+    .link {
+        text-decoration: none;
+        color: black;
+    }
+
+    h2 {
+        margin: 15px;
+        padding-bottom: 5px;
+        font-family: $secondary-font;
+        border-bottom: 1px solid grey;
+    }
+
+    .listing-wrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 0px 40px;
+        margin: 15px 0px;
+
+        .listing-left-container {
+            width: 175px;
+        }
+
+        .listing-right-container {
+            width: 575px;
+            margin-left: 20px;
+
+            h4 {
+                margin: 0;
+            }
+
+            h3 {
+                margin: 0;
+            }
+
+            span {
+                color: grey;
+            }
+
+            .address {
+                color: grey;
+            }
+        }
+    }
+}

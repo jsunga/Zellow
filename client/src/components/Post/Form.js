@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import { Redirect} from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
+import { BarLoader } from 'react-spinners'
+import { css } from '@emotion/core'
 import './Form.scss'
 import axios from 'axios'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    margin-top: 20px;
+`
 
 export default class Form extends Component {
 
@@ -20,7 +29,8 @@ export default class Form extends Component {
         housing_type: '',
         description: '',
         tags: '',
-        images: []
+        images: [],
+        loading: false
     }
 
     handlePost = (e) => {
@@ -60,6 +70,7 @@ export default class Form extends Component {
                     console.log(res.data)
                 })
                 .catch(err => {
+                    this.setState({ isLoading: false })
                     console.log(err.response)
                 })
               
@@ -80,20 +91,18 @@ export default class Form extends Component {
                     this.props.history.push('/mylistings')
                 })
                 .catch(err => {
+                    this.setState({ isLoading: false })
                     console.log(err)
                 })
     
             })
             .catch(err => {
+                this.setState({ isLoading: false })
                 if (err.response.status === 400) {
                     this.props.history.push('/404')
                 }
             })
-    
-        } else {
-            console.log('Submission Error')
-        }
-    
+        } 
     }
 
     validate = () => {
@@ -195,7 +204,14 @@ export default class Form extends Component {
                     <h2>Description</h2>
                     <textarea maxLength="1000" placeholder="Tell us more" rows="3" onChange={e => {this.setState({description: e.target.value})}} />
                 </section>
-                <button>Submit</button>
+                <BarLoader
+                    css={override}
+                    sizeUnit={"px"}
+                    width={375}
+                    color={'#006AFF'}
+                    loading={this.state.loading}
+                />
+                {this.state.loading ? null : <button>Submit</button> }
             </form>
             </>
         )

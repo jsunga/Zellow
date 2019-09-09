@@ -1,0 +1,10 @@
+@import '../../styling/variables';
+
+.messages {
+    h2 {
+        margin: 15px;
+        padding-bottom: 5px;
+        font-family: $secondary-font;
+        border-bottom: 1px solid grey;
+    }
+}
