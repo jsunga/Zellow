@@ -52,6 +52,7 @@ export default class MyListings extends Component {
         return (
             <div className='my-listings'>
                 <h2>My Listings</h2>
+                <main>
                 {this.state.listings.map(item => (
                     <Link to={`listing/${item.listing_id}`} className='link'><div className='listing-wrapper' key={item.listing_id}>
                         <section className='listing-left-container'>
@@ -67,6 +68,7 @@ export default class MyListings extends Component {
                         </section>
                     </div></Link>
                 ))}
+                </main>
             </div>
         )
     }

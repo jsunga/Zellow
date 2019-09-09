@@ -16,30 +16,50 @@
         display: flex;
 
         .left-container {
-            background-color: white;
             width: 250px;
-            height: 130px;
             margin-top: 10px;
 
-            h2 {
-                margin: 15px 15px 12px 15px;
-                padding-bottom: 5px;
-                border-bottom: 1px solid grey;
-                font-family: $secondary-font;
+            .dashboard-navbar {
+                height: 130px;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+
+                h2 {
+                    margin: 15px 15px 12px 15px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid grey;
+                    font-family: $secondary-font;
+                }
+    
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0px 15px 15px 17px;
+    
+                    li {
+                        margin-bottom: 12px;
+    
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #F0F0F0;
+                        }
+                    }
+                }
             }
 
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0px 15px 15px 17px;
+            .conversations {
+                height: calc(100vh - 249px);
+                background-color: white;
+                overflow: auto;
+                margin-top: 10px;
 
-                li {
-                    margin-bottom: 12px;
-
-                    &:hover {
-                        cursor: pointer;
-                        background-color: #F0F0F0;
-                    }
+                h2 {
+                    margin: 15px 15px 12px 15px;
+                    padding-bottom: 5px;
+                    padding-top: 1px;
+                    border-bottom: 1px solid grey;
+                    font-family: $secondary-font;
                 }
             }
         }
