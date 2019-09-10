@@ -54,41 +54,41 @@ export default class Dashboard extends Component {
     getConversation = listing_id => {
         axios.get('/api/message/myMessages')
         .then(res => {
-          for (let i = 0; i < res.data.length; i++) {
-            if (res.data[i].listing_id === listing_id) {
-              if (this.state.user_id === res.data[i].owner_id) {
-                this.setState({ sendingTo: res.data[i].renter_id })
-                break
-              } else {
-                this.setState({ sendingTo: res.data[i].owner_id })
-                break
-              }
+            for (let i = 0; i < res.data.length; i++) {
+                if (res.data[i].listing_id === listing_id) {
+                    if (this.state.user_id === res.data[i].owner_id) {
+                        this.setState({ sendingTo: res.data[i].renter_id })
+                        break
+                    } else {
+                        this.setState({ sendingTo: res.data[i].owner_id })
+                        break
+                    }
+                }
             }
-          }
         })
         .then(() => {
-          axios.get(`/api/message/receive/${listing_id}/${this.state.sendingTo}`)
+            axios.get(`/api/message/receive/${listing_id}/${this.state.sendingTo}`)
             .then(res => {
-              this.setState({ conversation: res.data })
-              this.getHeader(listing_id)
+                this.setState({ conversation: res.data })
+                this.getHeader(listing_id)
             })
             .catch(err => {
-              console.log(err.response.data)
+                console.log(err.response.data)
             })
         })
         .catch(err => {
-          console.log(err.response.data)
+            console.log(err.response.data)
         })
     }
 
-    getHeader = (value) => {
+    getHeader = value => {
         axios.get(`/api/listing/retrieve/${value}`)
-          .then(res => {
+        .then(res => {
             this.setState({ header: res.data })
-          })
-          .catch(err => {
+        })
+        .catch(err => {
             console.log(err.response.data)
-          })
+        })
     }
 
     changeMessage = e => {
@@ -98,25 +98,25 @@ export default class Dashboard extends Component {
     sendMessage = e => {
         e.preventDefault()
         axios.post('/api/message/send', {
-          message: this.state.message,
-          listingId: this.state.header.listing_id,
-          recepientId: this.state.sendingTo,
+            message: this.state.message,
+            listingId: this.state.header.listing_id,
+            recepientId: this.state.sendingTo,
         })
-          .then(() => {
+        .then(() => {
             axios.get(`/api/message/receive/${this.state.header.listing_id}/${this.state.sendingTo}`)
-              .then(res => {
+            .then(res => {
                 this.setState({
-                  message: '',
-                  conversation: res.data,
+                    message: '',
+                    conversation: res.data,
                 })
-              })
-              .catch(err => {
+            })
+            .catch(err => {
                 console.log(err.response.data)
-              })
-          })
-          .catch(err => {
+            })
+        })
+        .catch(err => {
             console.log(err.response.data)
-          })
+        })
     }
 
     render() {
