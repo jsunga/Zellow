@@ -10,3 +10,4 @@ VIEW SITE: http://54.183.229.234/
 - Node.js
 - Express.js
 - Postgres
+- AWS EC2
